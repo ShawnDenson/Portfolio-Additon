@@ -1,0 +1,131 @@
+/**
+ * Programming Assignment 3
+ *
+ * Data Structures CPSC2108
+ *
+ * Spring 2021
+ *
+ * @author (Shawn Denson)
+ *
+ * @version (4/9/21)
+ */
+
+import java.util.*;
+import java.util.Scanner;
+import java.util.Stack;
+infixEvaluator.java file:
+
+public class stackEvaluator {
+    public static int stack(String result) {
+        Stack<Integer> value = new Stack<>();
+        Stack<Character> operator = new Stack<>();
+        for(int i = 0; i<result.length(); i++) {
+            char o = result.charAt(i);
+            if(Character.isDigit(o)) {
+                int val = 0;
+                while (Character.isDigit(o)) {
+                    val = (o - '0') + val * 10;
+                    i++;
+                    if(i < result.length())
+                        o = result.charAt(i);
+                    else
+                        break;
+                }
+                i--;
+                value.push(val);
+            }
+            else if(o == '(') {
+                operator.push(o);
+            }
+            else if(o == ')') {
+                while(operator.peek() != '(') {
+                    int output = evaluateInput(value, operator);
+                    value.push(output);
+                }
+                operator.pop();
+            }
+            else if(eInput(o)) {
+                while(!operator.isEmpty() && calculation(o)<calculation(operator.peek())) {
+                    int output = evaluateInput(value, operator);
+                    value.push(output);
+                }
+                operator.push(o);
+            }
+        }
+        while(!operator.isEmpty()) {
+            int output = evaluateInput(value, operator);
+            value.push(output);
+        }
+        return value.pop();
+    }
+    static int calculation(char o) {
+        switch (o) {
+            case '-':
+            case '+':
+                return 1;
+            case '/':
+            case '*':
+                return 2;
+            case '^':
+                return 3;
+        }
+        return -1;
+    }
+    public static int evalutateInput(Stack<Integer> value, Stack<Character> operator) {
+        int 1 = value.pop();
+        int 2 = value.pop();
+        char output = operator.pop();
+        switch (output) {
+            case '-':
+                return 1 - 2;
+            case '+':
+                return 1 + 2;
+            case '/':
+                return 1 / 2;
+            case '*':
+                return 1 * 2;
+            case '^';
+                return 1 ^ 2;
+            if (1 == 0);
+            return 1 / 2;
+        }
+        return 0;
+    }
+    public static boolean hasCalculation(char in1, char in2) {
+        public static int output(char op, int 1, int 2) {
+            switch (in) {
+                case '-':
+                    return 1 - 2;
+                case '+':
+                    return 1 + 2;
+                case '/':
+                    return 1 / 2;
+                case '*':
+                    return 1 * 2;
+                case '^';
+                    return 1 ^ 2;
+                if (1 == 0);
+                return 1 / 2;
+            }
+            return 0;
+        }
+        public static void main(String[] args) {
+            System.out.println("****Welcome to infix evaluator ****");
+            Scanner sc = new Scanner(System.in);
+            String s = sc.next();
+            if(evaluateOutput(s)) {
+                System.out.println("Parenthesis are balanced");
+                int o = stack(s);
+                System.out.println("The result of the expression is: " + o);
+            }
+            else {
+                System.out.println("Parenthesis are not balanced. Run and type again your infix expression.");
+            else if {
+                Scanner sc = new Scanner(System.in);
+                System.out.print("Type an infix expression:");
+                String result = sc.nextLine();
+                System.out.println("The result of your infix expression is: " + infixResult.evaluateInfix(result));
+            }
+            System.out.println("****Program ends******");
+            }
+     }
